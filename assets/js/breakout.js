@@ -52,6 +52,9 @@ for (let c = 0; c < brickColumnCount; c++) {
     }
 }
 
+// Score
+let score = 0;
+
 // Declare the interval who's activated in the end of the script
 let interval;
 
@@ -101,10 +104,29 @@ function collisionDetection() {
                     ballYDir = -ballYDir;
                     // and set actual brick status to not displayed
                     b.status = 0;
+                    // Increment score and "Victory" if all bricks are down
+                    score++;
+                    if (score === brickRowCount * brickColumnCount) {
+                        alert("Congratulation, you win !");
+                        // End game
+                        clearInterval(interval);
+                        // Reload page
+                        document.location.reload();
+                        // For next level just load another page ?????
+                    }
                 }
             }
         }
     }
+}
+
+function drawScore() {
+    // Define font
+    ctx.font = "16px Arial";
+    // Define font color
+    ctx.fillStyle = "#0095DD";
+    // Define and position text(text, xPos, yPos)
+    ctx.fillText("Score: "+ score, 8, 20);
 }
 
 function drawBall() {
@@ -161,6 +183,8 @@ function draw() {
     drawBall();
     // Draw back the paddle in actual position
     drawPaddle();
+    // Draw actual score
+    drawScore();
     // Detect if collision between actual position of the ball with the bricks actually displayed
     collisionDetection();
     // Set ball actual direction
@@ -188,7 +212,6 @@ function draw() {
             clearInterval(interval);
             // Reload page
             document.location.reload();
-            // For other level just load another page ?????
         }
     }
     // Paddle movement check: if right of left is pressed --> paddle move 7px right or left on x
