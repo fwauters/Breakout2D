@@ -4,12 +4,11 @@
 }
 
 body {
-  background-color: blue;
+  background-color: lightgrey;
 }
 
 #myCanvas {
-  background-color: white;
+  background-color: black;
   display: block;
   margin: 20vh auto;
 }
-/*# sourceMappingURL=breakout.css.map */

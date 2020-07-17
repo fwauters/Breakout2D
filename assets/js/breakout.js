@@ -10,8 +10,8 @@ let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 
 // Starting position of the ball
-let ballXPos = canvas.width/2;
-let ballYPos = canvas.height-30;
+let ballXPos = canvas.width / 2;
+let ballYPos = canvas.height - 30;
 // Defining the ball radius variable to facilitate calculation
 let ballRadius = 10;
 // Direction of the ball
@@ -22,7 +22,7 @@ let ballYDir = -2;
 let paddleHeight = 10;
 let paddleWidth = 75;
 // Starting x position of the paddle
-let paddleXPos = (canvas.width-paddleWidth)/2;
+let paddleXPos = (canvas.width - paddleWidth) / 2;
 
 // Store if the right and left keys are pressed or not
 let rightPressed = false;
@@ -73,20 +73,20 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 function keyDownHandler(e) {
     // When left or right key is pressed --> corresponding variable = true
-    if(e.key === "Right" || e.key === "ArrowRight") {
+    if (e.key === "Right" || e.key === "ArrowRight") {
         rightPressed = true;
     }
-    else if(e.key === "Left" || e.key === "ArrowLeft") {
+    else if (e.key === "Left" || e.key === "ArrowLeft") {
         leftPressed = true;
     }
 }
 
 function keyUpHandler(e) {
     // When left or right key stop to be pressed --> corresponding variable = false
-    if(e.key == "Right" || e.key == "ArrowRight") {
+    if (e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = false;
     }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
+    else if (e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
 }
@@ -124,17 +124,17 @@ function drawScore() {
     // Define font
     ctx.font = "16px Arial";
     // Define font color
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "white";
     // Define and position text(text, xPos, yPos)
-    ctx.fillText("Score: "+ score, 8, 20);
+    ctx.fillText("Score: " + score, 8, 20);
 }
 
 function drawBall() {
     ctx.beginPath();
     // Define circle(coordX of center, coordY of center, radius, startAngle in rad, endAngle in rad, direction(false = clockwise))
-    ctx.arc(ballXPos, ballYPos, ballRadius, 0, Math.PI*2);
+    ctx.arc(ballXPos, ballYPos, ballRadius, 0, Math.PI * 2);
     // Define and apply filling color
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
 }
@@ -142,11 +142,11 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     // Define rectangle(pos x from topLeft, pos y from topLeft, width, height)
-    ctx.rect(paddleXPos, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "yellow";
+    ctx.rect(paddleXPos, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "white";
     ctx.fill();
     // Define and apply border color
-    ctx.strokeStyle = "green";
+    ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.closePath();
 }
@@ -166,10 +166,10 @@ function drawBricks() {
                 ctx.beginPath();
                 // Draw rectangle of size "brickWidth * brickHeight" at position "brickXPos, brickYPos"
                 ctx.rect(brickXPos, brickYPos, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "white";
                 ctx.fill();
                 ctx.closePath();
-            } 
+            }
         }
     }
 }
