@@ -7,8 +7,20 @@ body {
   background-color: lightgrey;
 }
 
+body div {
+  display: flex;
+  justify-content: center;
+}
+
 #myCanvas {
   background-color: black;
   display: block;
-  margin: 20vh auto;
+  margin: 20vh auto 5vh auto;
+}
+
+#btn {
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+  background-color: black;
+  color: white;
 }

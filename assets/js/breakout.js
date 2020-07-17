@@ -229,6 +229,8 @@ function draw() {
     }
 }
 
-//------------------------------------- Execution of the script ------------------------------------------------------------------
-interval = setInterval(draw, 10);
-// Use draw function every 10ms
+//------------------------------------- Execution --------------------------------------------------------------------------------
+document.getElementById("btn").addEventListener("click", () => {
+    // Use draw function every 10ms
+    interval = setInterval(draw, 10);
+});
